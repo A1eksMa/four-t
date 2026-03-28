@@ -16,7 +16,7 @@ graph LR
 
 | Stage | Title | Status | Commits |
 |-------|-------|--------|---------|
-| 1 | Core Infrastructure | Planned | — |
+| 1 | Core Infrastructure | **Complete** | 1da9d59 |
 | 2 | Data Layer | Planned | — |
 | 3 | State & Navigation | Planned | — |
 | 4 | Effects | Planned | — |
@@ -24,4 +24,4 @@ graph LR
 | 6 | Public API | Planned | — |
 | 7 | Demo Page | Planned | — |
 
-## Completion: 0%
+## Completion: 14% (1/7 stages)
