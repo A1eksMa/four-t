@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>four-t demo</title>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: system-ui, sans-serif;
+      background: #f8f9fa;
+      color: #1a1a1a;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 24px 16px;
+    }
+
+    .dark body {
+      background: #0f1117;
+      color: #e2e8f0;
+    }
+
+    header {
+      width: 100%;
+      max-width: 900px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 16px;
+    }
+
+    h1 { font-size: 18px; font-weight: 600; letter-spacing: -0.3px; }
+
+    .controls {
+      display: flex;
+      gap: 8px;
+    }
+
+    button {
+      padding: 5px 12px;
+      border: 1px solid #d0d0d0;
+      border-radius: 6px;
+      background: #fff;
+      font-size: 13px;
+      cursor: pointer;
+      color: inherit;
+    }
+
+    button:hover { background: #f0f0f0; }
+
+    html.dark button {
+      background: #1e2130;
+      border-color: #3a3f55;
+      color: #e2e8f0;
+    }
+
+    html.dark button:hover { background: #2a2f45; }
+
+    #widget {
+      width: 100%;
+      max-width: 900px;
+      height: 500px;
+      background: #fff;
+      border: 1px solid #e2e6ea;
+      border-radius: 10px;
+      overflow: hidden;
+    }
+
+    html.dark #widget {
+      background: #1a1d2e;
+      border-color: #2e3348;
+    }
+
+    footer {
+      margin-top: 16px;
+      font-size: 12px;
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>four-t demo</h1>
+    <div class="controls">
+      <button id="btn-en">EN</button>
+      <button id="btn-ru">RU</button>
+      <button id="btn-dark">Dark</button>
+    </div>
+  </header>
+
+  <div id="widget"></div>
+
+  <footer>four-t · open source competency visualisation widget</footer>
+
+  <!-- Option A: CDN -->
+  <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
+  <!-- Option B: local (uncomment when CDN unavailable) -->
+  <!-- <script src="./echarts.min.js"></script> -->
+
+  <script type="module">
+    import { FourT } from './4t-widget/widget.js'
+
+    let instanceId = null
+
+    instanceId = await FourT.init(document.getElementById('widget'), {
+      dataUrl: './4t-data/example/manifest.json',
+      lang: 'en',
+    })
+
+    document.getElementById('btn-en').addEventListener('click', () => {
+      if (instanceId) FourT.setLang(instanceId, 'en')
+    })
+
+    document.getElementById('btn-ru').addEventListener('click', () => {
+      if (instanceId) FourT.setLang(instanceId, 'ru')
+    })
+
+    document.getElementById('btn-dark').addEventListener('click', () => {
+      document.documentElement.classList.toggle('dark')
+    })
+  </script>
+</body>
+</html>
