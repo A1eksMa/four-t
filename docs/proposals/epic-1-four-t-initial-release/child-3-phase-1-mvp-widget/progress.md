@@ -21,7 +21,7 @@ graph LR
 | 3 | State & Navigation | **Complete** | be50a79 |
 | 4 | Effects | **Complete** | 7a4c059 |
 | 5 | Chart Builders | **Complete** | f4cb0b8 |
-| 6 | Public API | Planned | — |
+| 6 | Public API | **Complete** | 2e274fb |
 | 7 | Demo Page | Planned | — |
 
-## Completion: 71% (5/7 stages)
+## Completion: 86% (6/7 stages)
