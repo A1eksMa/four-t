@@ -18,10 +18,10 @@ graph LR
 |-------|-------|--------|---------|
 | 1 | Core Infrastructure | **Complete** | 1da9d59 |
 | 2 | Data Layer | **Complete** | fd95b90 |
-| 3 | State & Navigation | Planned | — |
+| 3 | State & Navigation | **Complete** | be50a79 |
 | 4 | Effects | Planned | — |
 | 5 | Chart Builders | Planned | — |
 | 6 | Public API | Planned | — |
 | 7 | Demo Page | Planned | — |
 
-## Completion: 29% (2/7 stages)
+## Completion: 43% (3/7 stages)
