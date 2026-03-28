@@ -1,0 +1,43 @@
+{
+  "4t": "1.0",
+
+  "meta": {
+    "title":  { "en": "Competency Map", "ru": "Карта компетенций" },
+    "author": "A1eksMa"
+  },
+
+  "scale": {
+    "id":  "default",
+    "min": 1,
+    "max": 10,
+    "divisions": [
+      { "value": 1,  "label": { "en": "Awareness",          "ru": "Осведомлённость"        }, "desc": { "en": "Heard of it, know the niche and use cases",      "ru": "Слышал, знаю нишу и область применения"       } },
+      { "value": 2,  "label": { "en": "Acquaintance",        "ru": "Знакомство"             }, "desc": { "en": "Took a course, read a book or video series",      "ru": "Прошёл курс / прочитал книгу / видеокурс"     } },
+      { "value": 3,  "label": { "en": "Basic practice",      "ru": "Базовая практика"       }, "desc": { "en": "Snippets, exercises, study assignments",           "ru": "Сниппеты, учебные задания"                    } },
+      { "value": 4,  "label": { "en": "Advanced study",      "ru": "Углублённая практика"   }, "desc": { "en": "Complex tasks, algorithms, data structures",       "ru": "Сложные задачи, алгоритмы, структуры данных"  } },
+      { "value": 5,  "label": { "en": "First project",       "ru": "Первый проект"          }, "desc": { "en": "Small application or pet-project",                 "ru": "Небольшое приложение / пет-проект"            } },
+      { "value": 6,  "label": { "en": "Ecosystem",           "ru": "Экосистема"             }, "desc": { "en": "Key frameworks, libraries and tooling",            "ru": "Основные фреймворки, библиотеки и тулинг"     } },
+      { "value": 7,  "label": { "en": "Confident",           "ru": "Уверенное владение"     }, "desc": { "en": "Syntax and stdlib without looking at docs",        "ru": "Синтаксис и стандартная библиотека без доки"  } },
+      { "value": 8,  "label": { "en": "Extended practice",   "ru": "Расширенная практика"   }, "desc": { "en": "Non-standard libraries, real production tasks",    "ru": "Нестандартные библиотеки, реальные задачи"    } },
+      { "value": 9,  "label": { "en": "Idiomatic",           "ru": "Идиомы и подводные камни"}, "desc": { "en": "Idiomatic code, common traps and gotchas",         "ru": "Идиоматический код, типичные ловушки"         } },
+      { "value": 10, "label": { "en": "Under the hood",      "ru": "Под капотом"            }, "desc": { "en": "Runtime, compiler internals, memory model",        "ru": "Runtime / компилятор / memory model"          } }
+    ]
+  },
+
+  "style": {
+    "theme": "auto"
+  },
+
+  "widget": {
+    "entry":    "track",
+    "entry_id": null
+  },
+
+  "tracks": [
+    { "id": "languages",    "file": "languages.json",    "order": 1 },
+    { "id": "data",         "file": "data.json",         "order": 2 },
+    { "id": "infra",        "file": "infra.json",        "order": 3 },
+    { "id": "systems",      "file": "systems.json",      "order": 4 },
+    { "id": "foundations",  "file": "foundations.json",  "order": 5 }
+  ]
+}

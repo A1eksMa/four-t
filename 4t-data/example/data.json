@@ -1,0 +1,20 @@
+{
+  "4t": "1.0",
+
+  "track": {
+    "id":    "data",
+    "name":  { "en": "Data & Analytics", "ru": "Данные и аналитика" },
+    "color": "#3b82f6",
+    "level": 0,
+    "on_click": "thread",
+
+    "chart": {
+      "title":     { "en": "Data & Analytics", "ru": "Данные и аналитика" },
+      "pre_text":  null,
+      "post_text": null,
+      "effects":   { "enter": "flipX", "exit": "flipX" }
+    }
+  },
+
+  "threads": []
+}

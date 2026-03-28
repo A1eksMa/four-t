@@ -1,0 +1,20 @@
+{
+  "4t": "1.0",
+
+  "track": {
+    "id":    "systems",
+    "name":  { "en": "Systems & Networks", "ru": "Системы и сети" },
+    "color": "#ef4444",
+    "level": 0,
+    "on_click": "thread",
+
+    "chart": {
+      "title":     { "en": "Systems & Networks", "ru": "Системы и сети" },
+      "pre_text":  null,
+      "post_text": null,
+      "effects":   { "enter": "flipX", "exit": "flipX" }
+    }
+  },
+
+  "threads": []
+}

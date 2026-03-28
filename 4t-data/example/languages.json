@@ -1,0 +1,345 @@
+{
+  "4t": "1.0",
+
+  "track": {
+    "id":    "languages",
+    "name":  { "en": "Programming Languages", "ru": "Языки программирования" },
+    "color": "#10b981",
+    "level": 8,
+    "on_click": "thread",
+
+    "chart": {
+      "title":     { "en": "Language proficiency overview", "ru": "Обзор владения языками" },
+      "pre_text":  null,
+      "post_text": null,
+      "effects":   { "enter": "flipX", "exit": "flipX" }
+    }
+  },
+
+  "threads": [
+    {
+      "id":     "python",
+      "name":   { "en": "Python", "ru": "Python" },
+      "level":  8,
+      "status": "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Python — growth history", "ru": "Python — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last"
+      },
+
+      "timeline": [
+        { "period": "2022Q4", "level": 2, "annotation": { "en": "Yandex course, Python basics", "ru": "Курс Яндекс, базовый питон" } },
+        { "period": "2023Q1", "level": 3, "annotation": null },
+        { "period": "2023Q2", "level": 3, "annotation": null },
+        { "period": "2023Q3", "level": 4, "annotation": null },
+        { "period": "2023Q4", "level": 5, "annotation": null },
+        { "period": "2024Q1", "level": 5, "annotation": null },
+        { "period": "2024Q2", "level": 6, "annotation": null },
+        { "period": "2025Q3", "level": 7, "annotation": null },
+        { "period": "2026Q1", "level": 8, "annotation": null }
+      ],
+
+      "tools": [
+        {
+          "period": "2023Q2",
+          "snapshot": [
+            { "name": "Flask",  "level": 1 },
+            { "name": "Django", "level": 1 }
+          ]
+        },
+        {
+          "period": "2024Q1",
+          "snapshot": [
+            { "name": "Flask",  "level": 2 },
+            { "name": "Django", "level": 1 }
+          ]
+        },
+        {
+          "period": "2024Q2",
+          "snapshot": [
+            { "name": "Flask",   "level": 4 },
+            { "name": "FastAPI", "level": 1 },
+            { "name": "Django",  "level": 2 }
+          ]
+        },
+        {
+          "period": "2025Q2",
+          "snapshot": [
+            { "name": "Flask",   "level": 4 },
+            { "name": "FastAPI", "level": 4 },
+            { "name": "Django",  "level": 4 }
+          ]
+        },
+        {
+          "period": "2025Q4",
+          "snapshot": [
+            { "name": "Flask",   "level": 4 },
+            { "name": "FastAPI", "level": 6 },
+            { "name": "Django",  "level": 4 }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id":     "java",
+      "name":   { "en": "Java", "ru": "Java" },
+      "level":  4,
+      "status": "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Java — growth history", "ru": "Java — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "step",
+        "edge_before":   "extend",
+        "edge_after":    "extend",
+        "aggregation":   "last"
+      },
+
+      "timeline": [
+        { "period": "2018Q3", "level": 2, "annotation": null },
+        { "period": "2024Q4", "level": 3, "annotation": null },
+        { "period": "2025Q1", "level": 4, "annotation": null },
+        { "period": "2026Q1", "level": 4, "annotation": null }
+      ],
+
+      "tools": []
+    },
+
+    {
+      "id":     "rust",
+      "name":   { "en": "Rust", "ru": "Rust" },
+      "level":  3,
+      "status": "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Rust — growth history", "ru": "Rust — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last"
+      },
+
+      "timeline": [
+        { "period": "2024Q3", "level": 1, "annotation": { "en": "Started learning", "ru": "Начало изучения" } },
+        { "period": "2024Q4", "level": 2, "annotation": null },
+        { "period": "2025Q1", "level": 3, "annotation": null },
+        { "period": "2026Q1", "level": 3, "annotation": null }
+      ],
+
+      "tools": []
+    },
+
+    {
+      "id":     "php",
+      "name":   { "en": "PHP", "ru": "PHP" },
+      "level":  3,
+      "status": "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "PHP — growth history", "ru": "PHP — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "step",
+        "edge_before":   "extend",
+        "edge_after":    "extend",
+        "aggregation":   "last"
+      },
+
+      "timeline": [
+        { "period": "2018Q3", "level": 1, "annotation": null },
+        { "period": "2022Q3", "level": 2, "annotation": null },
+        { "period": "2024Q3", "level": 3, "annotation": null },
+        { "period": "2026Q1", "level": 3, "annotation": null }
+      ],
+
+      "tools": []
+    },
+
+    {
+      "id":     "foxpro",
+      "name":   { "en": "FoxPro", "ru": "FoxPro" },
+      "level":  3,
+      "status": "archive",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "FoxPro — archived", "ru": "FoxPro — архив" },
+        "pre_text":  { "en": "Legacy skill, no longer actively used.", "ru": "Устаревший навык, более не используется активно." },
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "year",
+        "interpolation": "step",
+        "edge_before":   "extend",
+        "edge_after":    "extend",
+        "aggregation":   "last"
+      },
+
+      "timeline": [
+        { "period": "2018", "level": 3, "annotation": null },
+        { "period": "2026", "level": 3, "annotation": null }
+      ],
+
+      "tools": []
+    },
+
+    {
+      "id":     "kotlin",
+      "name":   { "en": "Kotlin", "ru": "Kotlin" },
+      "level":  2,
+      "status": "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     null,
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last"
+      },
+
+      "timeline": [
+        { "period": "2024Q4", "level": 1, "annotation": null },
+        { "period": "2025Q1", "level": 2, "annotation": null },
+        { "period": "2026Q1", "level": 2, "annotation": null }
+      ],
+
+      "tools": []
+    },
+
+    {
+      "id":     "go",
+      "name":   { "en": "Go", "ru": "Go" },
+      "level":  2,
+      "status": "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     null,
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last"
+      },
+
+      "timeline": [
+        { "period": "2024Q3", "level": 1, "annotation": null },
+        { "period": "2024Q4", "level": 2, "annotation": null },
+        { "period": "2026Q1", "level": 2, "annotation": null }
+      ],
+
+      "tools": []
+    },
+
+    {
+      "id":     "javascript",
+      "name":   { "en": "JavaScript", "ru": "JavaScript" },
+      "level":  2,
+      "status": "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     null,
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "step",
+        "edge_before":   "extend",
+        "edge_after":    "extend",
+        "aggregation":   "last"
+      },
+
+      "timeline": [
+        { "period": "2018Q3", "level": 1, "annotation": null },
+        { "period": "2025Q2", "level": 2, "annotation": null },
+        { "period": "2026Q1", "level": 2, "annotation": null }
+      ],
+
+      "tools": []
+    },
+
+    {
+      "id":     "cpp",
+      "name":   { "en": "C++", "ru": "C++" },
+      "level":  2,
+      "status": "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     null,
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last"
+      },
+
+      "timeline": [
+        { "period": "2025Q1", "level": 2, "annotation": null },
+        { "period": "2026Q1", "level": 2, "annotation": null }
+      ],
+
+      "tools": []
+    }
+  ]
+}
