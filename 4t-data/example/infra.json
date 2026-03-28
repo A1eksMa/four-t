@@ -5,17 +5,291 @@
     "id":    "infra",
     "name":  { "en": "Infrastructure", "ru": "Инфраструктура" },
     "color":    "#f59e0b",
-    "level":    0,
-    "status":   "placeholder",
+    "level":    8,
+    "status":   "active",
     "on_click": "thread",
 
     "chart": {
-      "title":     { "en": "Infrastructure", "ru": "Инфраструктура" },
+      "title":     { "en": "Infrastructure proficiency overview", "ru": "Обзор владения инфраструктурой" },
       "pre_text":  null,
       "post_text": null,
       "effects":   { "enter": "flipX", "exit": "flipX" }
     }
   },
 
-  "threads": []
+  "threads": [
+    {
+      "id":       "git",
+      "name":     { "en": "Git", "ru": "Git" },
+      "level":    8,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Git — growth history", "ru": "Git — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2018Q3", "level": 2, "annotation": { "en": "Commit, push, pull", "ru": "Commit, push, pull" } },
+        { "period": "2019Q2", "level": 4, "annotation": null },
+        { "period": "2020Q1", "level": 5, "annotation": { "en": "Branching strategies, rebase", "ru": "Стратегии ветвления, rebase" } },
+        { "period": "2021Q3", "level": 6, "annotation": null },
+        { "period": "2022Q4", "level": 7, "annotation": null },
+        { "period": "2024Q2", "level": 8, "annotation": { "en": "Hooks, submodules, worktrees", "ru": "Хуки, submodules, worktrees" } },
+        { "period": "2026Q1", "level": 8, "annotation": null }
+      ],
+
+      "tools": [
+        {
+          "period": "2022Q4",
+          "snapshot": [
+            { "name": "GitHub",    "level": 7 },
+            { "name": "GitLab",    "level": 4 },
+            { "name": "pre-commit","level": 3 }
+          ]
+        },
+        {
+          "period": "2024Q2",
+          "snapshot": [
+            { "name": "GitHub",    "level": 8 },
+            { "name": "GitLab",    "level": 5 },
+            { "name": "pre-commit","level": 5 },
+            { "name": "git-lfs",   "level": 3 }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id":       "docker",
+      "name":     { "en": "Docker", "ru": "Docker" },
+      "level":    8,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Docker — growth history", "ru": "Docker — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2019Q1", "level": 2, "annotation": { "en": "docker run, Dockerfile basics", "ru": "docker run, основы Dockerfile" } },
+        { "period": "2019Q4", "level": 4, "annotation": null },
+        { "period": "2020Q3", "level": 5, "annotation": { "en": "docker-compose multi-service", "ru": "docker-compose многосервисный" } },
+        { "period": "2021Q4", "level": 6, "annotation": null },
+        { "period": "2023Q1", "level": 7, "annotation": null },
+        { "period": "2024Q3", "level": 8, "annotation": { "en": "Multi-stage builds, volumes, networks", "ru": "Многоэтапные сборки, тома, сети" } },
+        { "period": "2026Q1", "level": 8, "annotation": null }
+      ],
+
+      "tools": [
+        {
+          "period": "2021Q4",
+          "snapshot": [
+            { "name": "docker-compose", "level": 5 },
+            { "name": "Docker Hub",     "level": 4 }
+          ]
+        },
+        {
+          "period": "2024Q3",
+          "snapshot": [
+            { "name": "docker-compose", "level": 8 },
+            { "name": "Docker Hub",     "level": 6 },
+            { "name": "Buildx",         "level": 4 },
+            { "name": "Docker Scout",   "level": 3 }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id":       "linux",
+      "name":     { "en": "Linux / Bash", "ru": "Linux / Bash" },
+      "level":    7,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Linux / Bash — growth history", "ru": "Linux / Bash — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2018Q3", "level": 2, "annotation": { "en": "Basic CLI, file system", "ru": "Базовый CLI, файловая система" } },
+        { "period": "2019Q2", "level": 3, "annotation": null },
+        { "period": "2020Q1", "level": 4, "annotation": null },
+        { "period": "2021Q1", "level": 5, "annotation": { "en": "Bash scripting, cron, systemd", "ru": "Bash-скрипты, cron, systemd" } },
+        { "period": "2022Q3", "level": 6, "annotation": null },
+        { "period": "2024Q1", "level": 7, "annotation": { "en": "Process management, sed/awk, networking tools", "ru": "Управление процессами, sed/awk, сетевые утилиты" } },
+        { "period": "2026Q1", "level": 7, "annotation": null }
+      ],
+
+      "tools": [
+        {
+          "period": "2024Q1",
+          "snapshot": [
+            { "name": "systemd", "level": 5 },
+            { "name": "cron",    "level": 6 },
+            { "name": "tmux",    "level": 5 },
+            { "name": "rsync",   "level": 4 }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id":       "cicd",
+      "name":     { "en": "CI/CD", "ru": "CI/CD" },
+      "level":    6,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "CI/CD — growth history", "ru": "CI/CD — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2020Q3", "level": 1, "annotation": { "en": "First GitHub Actions workflow", "ru": "Первый GitHub Actions workflow" } },
+        { "period": "2021Q1", "level": 3, "annotation": null },
+        { "period": "2022Q1", "level": 4, "annotation": null },
+        { "period": "2023Q2", "level": 5, "annotation": { "en": "Matrix builds, caching, secrets", "ru": "Matrix builds, кэширование, secrets" } },
+        { "period": "2025Q1", "level": 6, "annotation": { "en": "Reusable workflows, self-hosted runners", "ru": "Reusable workflows, self-hosted runners" } },
+        { "period": "2026Q1", "level": 6, "annotation": null }
+      ],
+
+      "tools": [
+        {
+          "period": "2025Q1",
+          "snapshot": [
+            { "name": "GitHub Actions", "level": 6 },
+            { "name": "GitLab CI",      "level": 3 },
+            { "name": "act",            "level": 3 }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id":       "nginx",
+      "name":     { "en": "nginx", "ru": "nginx" },
+      "level":    5,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "nginx — growth history", "ru": "nginx — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2020Q1", "level": 1, "annotation": null },
+        { "period": "2020Q4", "level": 3, "annotation": { "en": "Reverse proxy, static serving", "ru": "Обратный прокси, статика" } },
+        { "period": "2022Q2", "level": 4, "annotation": null },
+        { "period": "2024Q3", "level": 5, "annotation": { "en": "Load balancing, SSL termination", "ru": "Балансировка нагрузки, SSL termination" } },
+        { "period": "2026Q1", "level": 5, "annotation": null }
+      ],
+
+      "tools": []
+    },
+
+    {
+      "id":       "kubernetes",
+      "name":     { "en": "Kubernetes", "ru": "Kubernetes" },
+      "level":    4,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Kubernetes — growth history", "ru": "Kubernetes — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2022Q1", "level": 1, "annotation": { "en": "kubectl basics, pods, services", "ru": "kubectl, pods, services" } },
+        { "period": "2022Q4", "level": 2, "annotation": null },
+        { "period": "2023Q4", "level": 3, "annotation": null },
+        { "period": "2025Q2", "level": 4, "annotation": { "en": "Deployments, ConfigMaps, Helm basics", "ru": "Deployments, ConfigMaps, основы Helm" } },
+        { "period": "2026Q1", "level": 4, "annotation": null }
+      ],
+
+      "tools": [
+        {
+          "period": "2025Q2",
+          "snapshot": [
+            { "name": "kubectl", "level": 4 },
+            { "name": "Helm",    "level": 3 },
+            { "name": "k9s",     "level": 3 }
+          ]
+        }
+      ]
+    }
+  ]
 }

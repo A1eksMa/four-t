@@ -5,17 +5,191 @@
     "id":    "foundations",
     "name":  { "en": "Foundations", "ru": "Основы" },
     "color":    "#8b5cf6",
-    "level":    0,
-    "status":   "placeholder",
+    "level":    8,
+    "status":   "active",
     "on_click": "thread",
 
     "chart": {
-      "title":     { "en": "Foundations", "ru": "Основы" },
+      "title":     { "en": "Foundations proficiency overview", "ru": "Обзор фундаментальных знаний" },
       "pre_text":  null,
       "post_text": null,
       "effects":   { "enter": "flipX", "exit": "flipX" }
     }
   },
 
-  "threads": []
+  "threads": [
+    {
+      "id":       "relational-model",
+      "name":     { "en": "Relational model", "ru": "Реляционная модель" },
+      "level":    8,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Relational model — growth history", "ru": "Реляционная модель — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2018Q3", "level": 3, "annotation": { "en": "Tables, keys, normalisation basics", "ru": "Таблицы, ключи, основы нормализации" } },
+        { "period": "2019Q2", "level": 5, "annotation": null },
+        { "period": "2020Q1", "level": 6, "annotation": { "en": "3NF, functional dependencies", "ru": "3НФ, функциональные зависимости" } },
+        { "period": "2021Q3", "level": 7, "annotation": null },
+        { "period": "2023Q2", "level": 8, "annotation": { "en": "MVCC, transaction isolation, ACID internals", "ru": "MVCC, уровни изоляции, внутренности ACID" } },
+        { "period": "2026Q1", "level": 8, "annotation": null }
+      ],
+
+      "tools": []
+    },
+
+    {
+      "id":       "algorithms",
+      "name":     { "en": "Algorithms & Data Structures", "ru": "Алгоритмы и структуры данных" },
+      "level":    6,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Algorithms & DS — growth history", "ru": "Алгоритмы и СД — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2018Q3", "level": 2, "annotation": { "en": "Arrays, linked lists, sorting", "ru": "Массивы, связные списки, сортировки" } },
+        { "period": "2019Q3", "level": 3, "annotation": null },
+        { "period": "2020Q3", "level": 4, "annotation": { "en": "Trees, hash maps, O-notation", "ru": "Деревья, хэш-таблицы, O-нотация" } },
+        { "period": "2022Q1", "level": 5, "annotation": null },
+        { "period": "2024Q1", "level": 6, "annotation": { "en": "Graphs, DP, segment trees", "ru": "Графы, ДП, дерево отрезков" } },
+        { "period": "2026Q1", "level": 6, "annotation": null }
+      ],
+
+      "tools": []
+    },
+
+    {
+      "id":       "oop-patterns",
+      "name":     { "en": "OOP / Design patterns", "ru": "ООП / Паттерны проектирования" },
+      "level":    6,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "OOP / Design patterns — growth history", "ru": "ООП / Паттерны — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2018Q3", "level": 2, "annotation": { "en": "Classes, inheritance, encapsulation", "ru": "Классы, наследование, инкапсуляция" } },
+        { "period": "2019Q2", "level": 3, "annotation": null },
+        { "period": "2020Q2", "level": 4, "annotation": { "en": "SOLID, GoF creational / structural", "ru": "SOLID, GoF порождающие / структурные" } },
+        { "period": "2021Q4", "level": 5, "annotation": null },
+        { "period": "2023Q3", "level": 6, "annotation": { "en": "Behavioural patterns, composition over inheritance", "ru": "Поведенческие паттерны, композиция vs. наследование" } },
+        { "period": "2026Q1", "level": 6, "annotation": null }
+      ],
+
+      "tools": []
+    },
+
+    {
+      "id":       "statistics",
+      "name":     { "en": "Statistics / Probability", "ru": "Статистика / Теория вероятностей" },
+      "level":    5,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Statistics — growth history", "ru": "Статистика — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2019Q1", "level": 2, "annotation": { "en": "Descriptive stats, distributions", "ru": "Описательная статистика, распределения" } },
+        { "period": "2020Q2", "level": 3, "annotation": null },
+        { "period": "2021Q3", "level": 4, "annotation": { "en": "Hypothesis testing, A/B tests", "ru": "Проверка гипотез, A/B тесты" } },
+        { "period": "2023Q4", "level": 5, "annotation": { "en": "Bayesian inference, regression analysis", "ru": "Байесовский вывод, регрессионный анализ" } },
+        { "period": "2026Q1", "level": 5, "annotation": null }
+      ],
+
+      "tools": []
+    },
+
+    {
+      "id":       "functional-programming",
+      "name":     { "en": "Functional programming", "ru": "Функциональное программирование" },
+      "level":    5,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Functional programming — growth history", "ru": "Функциональное программирование — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2020Q1", "level": 1, "annotation": { "en": "Pure functions, map/filter/reduce", "ru": "Чистые функции, map/filter/reduce" } },
+        { "period": "2020Q4", "level": 2, "annotation": null },
+        { "period": "2022Q1", "level": 3, "annotation": { "en": "Immutability, closures, currying", "ru": "Иммутабельность, замыкания, каррирование" } },
+        { "period": "2023Q3", "level": 4, "annotation": null },
+        { "period": "2025Q2", "level": 5, "annotation": { "en": "Monads, functors, effect systems", "ru": "Монады, функторы, системы эффектов" } },
+        { "period": "2026Q1", "level": 5, "annotation": null }
+      ],
+
+      "tools": []
+    }
+  ]
 }

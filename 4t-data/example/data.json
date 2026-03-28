@@ -5,17 +5,397 @@
     "id":    "data",
     "name":  { "en": "Data & Analytics", "ru": "Данные и аналитика" },
     "color":    "#3b82f6",
-    "level":    0,
-    "status":   "placeholder",
+    "level":    9,
+    "status":   "active",
     "on_click": "thread",
 
     "chart": {
-      "title":     { "en": "Data & Analytics", "ru": "Данные и аналитика" },
+      "title":     { "en": "Data & Analytics proficiency overview", "ru": "Обзор владения инструментами данных" },
       "pre_text":  null,
       "post_text": null,
       "effects":   { "enter": "flipX", "exit": "flipX" }
     }
   },
 
-  "threads": []
+  "threads": [
+    {
+      "id":       "sql",
+      "name":     { "en": "SQL", "ru": "SQL" },
+      "level":    9,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "SQL — growth history", "ru": "SQL — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2018Q3", "level": 3, "annotation": { "en": "Basic SELECT/JOIN", "ru": "Базовые SELECT/JOIN" } },
+        { "period": "2019Q1", "level": 4, "annotation": null },
+        { "period": "2019Q3", "level": 5, "annotation": null },
+        { "period": "2020Q1", "level": 6, "annotation": { "en": "Window functions, CTEs", "ru": "Оконные функции, CTE" } },
+        { "period": "2021Q1", "level": 7, "annotation": null },
+        { "period": "2022Q1", "level": 8, "annotation": null },
+        { "period": "2023Q1", "level": 8, "annotation": null },
+        { "period": "2024Q2", "level": 9, "annotation": { "en": "Query optimisation, indexes", "ru": "Оптимизация запросов, индексы" } },
+        { "period": "2026Q1", "level": 9, "annotation": null }
+      ],
+
+      "tools": [
+        {
+          "period": "2020Q1",
+          "snapshot": [
+            { "name": "PostgreSQL", "level": 4 },
+            { "name": "SQLite",     "level": 3 }
+          ]
+        },
+        {
+          "period": "2022Q1",
+          "snapshot": [
+            { "name": "PostgreSQL", "level": 6 },
+            { "name": "ClickHouse", "level": 2 },
+            { "name": "SQLite",     "level": 3 }
+          ]
+        },
+        {
+          "period": "2024Q2",
+          "snapshot": [
+            { "name": "PostgreSQL", "level": 8 },
+            { "name": "ClickHouse", "level": 7 },
+            { "name": "SQLite",     "level": 4 },
+            { "name": "DuckDB",     "level": 3 }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id":       "pandas-numpy",
+      "name":     { "en": "Pandas / NumPy", "ru": "Pandas / NumPy" },
+      "level":    8,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Pandas / NumPy — growth history", "ru": "Pandas / NumPy — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2019Q1", "level": 2, "annotation": { "en": "First data analysis scripts", "ru": "Первые скрипты анализа данных" } },
+        { "period": "2019Q3", "level": 3, "annotation": null },
+        { "period": "2020Q2", "level": 4, "annotation": null },
+        { "period": "2021Q1", "level": 5, "annotation": null },
+        { "period": "2022Q2", "level": 6, "annotation": null },
+        { "period": "2023Q2", "level": 7, "annotation": { "en": "Vectorised operations, memory optimisation", "ru": "Векторизованные операции, оптимизация памяти" } },
+        { "period": "2024Q3", "level": 8, "annotation": null },
+        { "period": "2026Q1", "level": 8, "annotation": null }
+      ],
+
+      "tools": [
+        {
+          "period": "2022Q2",
+          "snapshot": [
+            { "name": "Pandas",    "level": 5 },
+            { "name": "NumPy",     "level": 4 },
+            { "name": "Matplotlib","level": 3 }
+          ]
+        },
+        {
+          "period": "2024Q3",
+          "snapshot": [
+            { "name": "Pandas",    "level": 8 },
+            { "name": "NumPy",     "level": 6 },
+            { "name": "Polars",    "level": 3 },
+            { "name": "Matplotlib","level": 4 },
+            { "name": "Seaborn",   "level": 3 }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id":       "postgresql",
+      "name":     { "en": "PostgreSQL", "ru": "PostgreSQL" },
+      "level":    8,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "PostgreSQL — growth history", "ru": "PostgreSQL — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2019Q1", "level": 2, "annotation": null },
+        { "period": "2019Q4", "level": 4, "annotation": null },
+        { "period": "2020Q3", "level": 5, "annotation": null },
+        { "period": "2021Q2", "level": 6, "annotation": { "en": "JSONB, full-text search", "ru": "JSONB, полнотекстовый поиск" } },
+        { "period": "2022Q3", "level": 7, "annotation": null },
+        { "period": "2024Q1", "level": 8, "annotation": { "en": "Partitioning, replication basics", "ru": "Партиционирование, основы репликации" } },
+        { "period": "2026Q1", "level": 8, "annotation": null }
+      ],
+
+      "tools": [
+        {
+          "period": "2021Q2",
+          "snapshot": [
+            { "name": "psycopg2",   "level": 5 },
+            { "name": "SQLAlchemy", "level": 3 }
+          ]
+        },
+        {
+          "period": "2024Q1",
+          "snapshot": [
+            { "name": "psycopg2",   "level": 7 },
+            { "name": "SQLAlchemy", "level": 6 },
+            { "name": "asyncpg",    "level": 4 },
+            { "name": "pgAdmin",    "level": 5 }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id":       "clickhouse",
+      "name":     { "en": "ClickHouse", "ru": "ClickHouse" },
+      "level":    7,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "ClickHouse — growth history", "ru": "ClickHouse — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2021Q3", "level": 2, "annotation": { "en": "First analytical queries", "ru": "Первые аналитические запросы" } },
+        { "period": "2022Q1", "level": 3, "annotation": null },
+        { "period": "2022Q4", "level": 5, "annotation": null },
+        { "period": "2023Q3", "level": 6, "annotation": { "en": "MergeTree engines, materialized views", "ru": "Движки MergeTree, материализованные представления" } },
+        { "period": "2024Q4", "level": 7, "annotation": null },
+        { "period": "2026Q1", "level": 7, "annotation": null }
+      ],
+
+      "tools": [
+        {
+          "period": "2023Q3",
+          "snapshot": [
+            { "name": "clickhouse-driver", "level": 5 },
+            { "name": "clickhouse-connect","level": 3 }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id":       "dbt",
+      "name":     { "en": "dbt", "ru": "dbt" },
+      "level":    6,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "dbt — growth history", "ru": "dbt — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2022Q1", "level": 2, "annotation": { "en": "dbt Core, first models", "ru": "dbt Core, первые модели" } },
+        { "period": "2022Q3", "level": 4, "annotation": null },
+        { "period": "2023Q2", "level": 5, "annotation": null },
+        { "period": "2024Q3", "level": 6, "annotation": { "en": "Tests, snapshots, macros", "ru": "Тесты, снапшоты, макросы" } },
+        { "period": "2026Q1", "level": 6, "annotation": null }
+      ],
+
+      "tools": [
+        {
+          "period": "2024Q3",
+          "snapshot": [
+            { "name": "dbt-core",       "level": 6 },
+            { "name": "dbt-postgres",   "level": 6 },
+            { "name": "dbt-clickhouse", "level": 4 }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id":       "spark",
+      "name":     { "en": "Apache Spark", "ru": "Apache Spark" },
+      "level":    6,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Apache Spark — growth history", "ru": "Apache Spark — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2020Q1", "level": 1, "annotation": { "en": "Spark fundamentals", "ru": "Основы Spark" } },
+        { "period": "2020Q4", "level": 3, "annotation": null },
+        { "period": "2021Q3", "level": 4, "annotation": null },
+        { "period": "2022Q3", "level": 5, "annotation": null },
+        { "period": "2024Q1", "level": 6, "annotation": { "en": "Structured Streaming, optimisation", "ru": "Structured Streaming, оптимизация" } },
+        { "period": "2026Q1", "level": 6, "annotation": null }
+      ],
+
+      "tools": [
+        {
+          "period": "2024Q1",
+          "snapshot": [
+            { "name": "PySpark",   "level": 6 },
+            { "name": "Spark SQL", "level": 5 },
+            { "name": "Delta Lake","level": 3 }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id":       "kafka",
+      "name":     { "en": "Apache Kafka", "ru": "Apache Kafka" },
+      "level":    5,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Apache Kafka — growth history", "ru": "Apache Kafka — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2021Q1", "level": 1, "annotation": null },
+        { "period": "2021Q3", "level": 2, "annotation": null },
+        { "period": "2022Q2", "level": 3, "annotation": { "en": "Producers/consumers, topics", "ru": "Продюсеры/консьюмеры, топики" } },
+        { "period": "2023Q3", "level": 4, "annotation": null },
+        { "period": "2025Q1", "level": 5, "annotation": { "en": "Consumer groups, offsets, partitions", "ru": "Consumer groups, offset, партиции" } },
+        { "period": "2026Q1", "level": 5, "annotation": null }
+      ],
+
+      "tools": [
+        {
+          "period": "2025Q1",
+          "snapshot": [
+            { "name": "confluent-kafka-python", "level": 4 },
+            { "name": "kafka-python",           "level": 4 },
+            { "name": "kafka-ui",               "level": 3 }
+          ]
+        }
+      ]
+    },
+
+    {
+      "id":       "airflow",
+      "name":     { "en": "Airflow", "ru": "Airflow" },
+      "level":    5,
+      "status":   "active",
+      "on_click": "timeline",
+
+      "chart": {
+        "title":     { "en": "Airflow — growth history", "ru": "Airflow — история роста" },
+        "pre_text":  null,
+        "post_text": null,
+        "effects":   { "enter": "flipY", "exit": "flipY" }
+      },
+
+      "timeline_config": {
+        "scale":         "quarter",
+        "interpolation": "smooth",
+        "edge_before":   "zero",
+        "edge_after":    "extend",
+        "aggregation":   "last",
+        "bar_click":     "tools"
+      },
+
+      "timeline": [
+        { "period": "2021Q1", "level": 1, "annotation": null },
+        { "period": "2021Q4", "level": 3, "annotation": { "en": "DAGs, operators, scheduling", "ru": "DAG, операторы, расписание" } },
+        { "period": "2022Q4", "level": 4, "annotation": null },
+        { "period": "2024Q2", "level": 5, "annotation": { "en": "TaskFlow API, custom sensors", "ru": "TaskFlow API, кастомные сенсоры" } },
+        { "period": "2026Q1", "level": 5, "annotation": null }
+      ],
+
+      "tools": []
+    }
+  ]
 }
