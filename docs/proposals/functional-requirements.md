@@ -15,7 +15,9 @@ Navigation is triggered by clicking chart elements. Breadcrumb navigation allows
 Each entity can configure where a click leads (`on_click`):
 - A Track may go to Thread, Timeline, Tools, or be non-clickable
 - A Thread may go to Timeline, Tools, or be non-clickable
+- At L3 (Timeline), clicking a bar navigates to L4 (Tools) by default. This is configurable per Thread via `timeline_config.bar_click`; setting it to `null` makes L3 a terminal level
 - Depth can be reduced globally (e.g., start at Thread level, skip Tools entirely)
+- The widget entry point is configurable: `widget.entry` sets the starting level; `widget.entry_track` and `widget.entry_thread` scope the entry to a specific entity when starting below Track level
 
 ### FR-1.3 Animated transitions
 Each level transition uses a configurable visual effect (flip, grow, none). Effects are selected per entity and per direction (enter/exit). The effect registry is extensible.
@@ -49,7 +51,9 @@ L3 (Timeline) includes a zoomable time axis — both drag-to-zoom and a slider c
 ## FR-2: Data model
 
 ### FR-2.1 Track
-Properties: `id`, `name` (multilingual), `color`, `level` (aggregate), `on_click`, `chart` metadata, list of Threads.
+Properties: `id`, `name` (multilingual), `color`, `level` (aggregate), `status` (`"active"` or `"placeholder"`), `on_click`, `scale` (optional inline override), `chart` metadata, list of Threads.
+
+A `placeholder` track is rendered as a dimmed, non-clickable bar in L1 with no threads. It signals content that is planned but not yet available.
 
 ### FR-2.2 Thread
 Properties: `id`, `name` (multilingual), `level` (current), `status` (active / archive), `on_click`, `chart` metadata, Timeline points, Tool snapshots, `timeline_config`.
@@ -61,7 +65,9 @@ A sequence of `{ period, level, annotation }` points. The time scale (day / week
 A named skill or library with a proficiency level. Tools are grouped in snapshots keyed by period. The widget displays the snapshot most recently before or equal to the selected period.
 
 ### FR-2.5 Scale
-A first-class object shared across the widget. Contains `min`, `max`, and an array of named divisions. Each division has a `value`, `label`, and `desc`. The scale is defined in `manifest.json` and may be overridden per Track.
+A first-class object shared across the widget. Contains `min`, `max`, and an array of named divisions. Each division has a `value`, `label`, and `desc`. The scale is defined in `manifest.json`.
+
+A Track may define an inline `scale` field with the same structure, which overrides the manifest scale for all threads within that track. This allows tracks with fundamentally different measurement systems (e.g., years of experience vs. proficiency score) to coexist in the same widget instance.
 
 ---
 

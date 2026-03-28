@@ -4,8 +4,9 @@
   "track": {
     "id":    "systems",
     "name":  { "en": "Systems & Networks", "ru": "Системы и сети" },
-    "color": "#ef4444",
-    "level": 0,
+    "color":    "#ef4444",
+    "level":    0,
+    "status":   "placeholder",
     "on_click": "thread",
 
     "chart": {

@@ -50,8 +50,9 @@ data/
   },
 
   "widget": {
-    "entry":    "track",
-    "entry_id": null
+    "entry":        "track",
+    "entry_track":  null,
+    "entry_thread": null
   },
 
   "tracks": [
@@ -71,7 +72,8 @@ data/
 | `scale` | Scale | yes | Shared scale object |
 | `style.theme` | `"light"` \| `"dark"` \| `"auto"` | no | Default `"auto"` |
 | `widget.entry` | EntityType | no | Starting level. Default `"track"` |
-| `widget.entry_id` | string \| null | no | Required when `entry` is not `"track"` |
+| `widget.entry_track` | string \| null | no | Track `id` — required when `entry` is `"thread"` or deeper |
+| `widget.entry_thread` | string \| null | no | Thread `id` — required when `entry` is `"timeline"` or `"tools"` |
 | `tracks[].id` | string | yes | Matches track file's `track.id` |
 | `tracks[].file` | string | yes | Filename relative to manifest |
 | `tracks[].order` | number | no | Display order in L1 chart |
@@ -85,10 +87,11 @@ data/
   "4t": "1.0",
 
   "track": {
-    "id":    "languages",
-    "name":  { "en": "Programming Languages", "ru": "Языки программирования" },
-    "color": "#10b981",
-    "level": 8,
+    "id":       "languages",
+    "name":     { "en": "Programming Languages", "ru": "Языки программирования" },
+    "color":    "#10b981",
+    "level":    8,
+    "status":   "active",
     "on_click": "thread",
 
     "chart": {
@@ -119,7 +122,8 @@ data/
         "interpolation": "smooth",
         "edge_before":   "zero",
         "edge_after":    "extend",
-        "aggregation":   "last"
+        "aggregation":   "last",
+        "bar_click":     "tools"
       },
 
       "timeline": [
@@ -161,7 +165,9 @@ data/
 | `track.name` | LocaleString | yes | Display name |
 | `track.color` | hex string | yes | Track accent color |
 | `track.level` | number | yes | Aggregate level for L1 bar |
-| `track.on_click` | EntityType \| null | no | Where click goes. Default `"thread"` |
+| `track.status` | `"active"` \| `"placeholder"` | no | Default `"active"`. Placeholder tracks render as dimmed "coming soon" bars and are not clickable |
+| `track.on_click` | EntityType \| null | no | Where click goes. Default `"thread"`. Ignored when `status` is `"placeholder"` |
+| `track.scale` | Scale \| null | no | Inline scale override for this track. When set, replaces the manifest `scale` for all threads in this track |
 | `track.chart` | ChartMeta | no | Title, pre/post text, effects |
 | `threads[]` | Thread[] | yes | List of threads in this track |
 
@@ -188,6 +194,7 @@ data/
 | `edge_before` | `zero` `extend` `null` | `zero` | Behavior before first point |
 | `edge_after` | `zero` `extend` `null` | `extend` | Behavior after last point |
 | `aggregation` | `last` `max` `avg` | `last` | When merging cross-scale timelines |
+| `bar_click` | `"tools"` \| `null` | `"tools"` | What clicking a timeline bar at L3 does. `null` makes bars non-clickable (L3 becomes a terminal level) |
 
 ### ChartMeta
 

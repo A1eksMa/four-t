@@ -4,8 +4,9 @@
   "track": {
     "id":    "infra",
     "name":  { "en": "Infrastructure", "ru": "Инфраструктура" },
-    "color": "#f59e0b",
-    "level": 0,
+    "color":    "#f59e0b",
+    "level":    0,
+    "status":   "placeholder",
     "on_click": "thread",
 
     "chart": {

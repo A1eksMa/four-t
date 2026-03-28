@@ -29,8 +29,9 @@
   },
 
   "widget": {
-    "entry":    "track",
-    "entry_id": null
+    "entry":        "track",
+    "entry_track":  null,
+    "entry_thread": null
   },
 
   "tracks": [

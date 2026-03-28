@@ -4,8 +4,9 @@
   "track": {
     "id":    "foundations",
     "name":  { "en": "Foundations", "ru": "Основы" },
-    "color": "#8b5cf6",
-    "level": 0,
+    "color":    "#8b5cf6",
+    "level":    0,
+    "status":   "placeholder",
     "on_click": "thread",
 
     "chart": {

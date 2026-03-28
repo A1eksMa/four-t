@@ -4,8 +4,9 @@
   "track": {
     "id":    "languages",
     "name":  { "en": "Programming Languages", "ru": "Языки программирования" },
-    "color": "#10b981",
-    "level": 8,
+    "color":    "#10b981",
+    "level":    8,
+    "status":   "active",
     "on_click": "thread",
 
     "chart": {
@@ -36,7 +37,8 @@
         "interpolation": "smooth",
         "edge_before":   "zero",
         "edge_after":    "extend",
-        "aggregation":   "last"
+        "aggregation":   "last",
+        "bar_click":     "tools"
       },
 
       "timeline": [
@@ -144,7 +146,8 @@
         "interpolation": "smooth",
         "edge_before":   "zero",
         "edge_after":    "extend",
-        "aggregation":   "last"
+        "aggregation":   "last",
+        "bar_click":     "tools"
       },
 
       "timeline": [
@@ -238,7 +241,8 @@
         "interpolation": "smooth",
         "edge_before":   "zero",
         "edge_after":    "extend",
-        "aggregation":   "last"
+        "aggregation":   "last",
+        "bar_click":     "tools"
       },
 
       "timeline": [
@@ -269,7 +273,8 @@
         "interpolation": "smooth",
         "edge_before":   "zero",
         "edge_after":    "extend",
-        "aggregation":   "last"
+        "aggregation":   "last",
+        "bar_click":     "tools"
       },
 
       "timeline": [
@@ -331,7 +336,8 @@
         "interpolation": "smooth",
         "edge_before":   "zero",
         "edge_after":    "extend",
-        "aggregation":   "last"
+        "aggregation":   "last",
+        "bar_click":     "tools"
       },
 
       "timeline": [
