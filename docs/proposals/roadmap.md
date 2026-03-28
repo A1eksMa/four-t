@@ -8,7 +8,7 @@
 - [x] Visualization: 4-level drill-down with flip animations, ECharts 5.6
 - [x] Architecture decisions documented
 - [x] Data schema v1.0 designed
-- [ ] Repository `four-t` created with docs/proposals
+- [x] Repository `four-t` created with docs/proposals
 
 ---
 
