@@ -1,0 +1,10 @@
+{
+  "hint_l1": "Click a track to see details",
+  "hint_l2": "Click a thread to see its timeline",
+  "hint_l3": "Click a bar to see tools for that period",
+  "hint_l4": "Tools active in this period",
+  "breadcrumb_all_tracks": "All tracks",
+  "legend_title": "Proficiency scale",
+  "no_tools": "No tool data for this period",
+  "archive_label": "archive"
+}
