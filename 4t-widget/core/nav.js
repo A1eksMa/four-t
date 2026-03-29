@@ -4,8 +4,12 @@ const DEFAULT_CHAIN = {
   track: 'thread', thread: 'timeline', timeline: 'tools', tools: null,
 }
 
-export const resolveNext = (entity, entityType) =>
-  entity.on_click !== undefined ? entity.on_click : DEFAULT_CHAIN[entityType]
+export const resolveNext = (entity, entityType) => {
+  if (entityType === 'timeline') {
+    return entity.timeline_config?.bar_click ?? DEFAULT_CHAIN.timeline
+  }
+  return entity.on_click !== undefined ? entity.on_click : DEFAULT_CHAIN[entityType]
+}
 
 export const canDrillDown = (entity, entityType) =>
   resolveNext(entity, entityType) !== null
