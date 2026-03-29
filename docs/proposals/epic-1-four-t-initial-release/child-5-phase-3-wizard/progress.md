@@ -22,7 +22,7 @@ graph LR
 |---|-------|--------|
 | 001 | Shell: layout, Vue, store, preview, start dialog | **Complete** ✅ |
 | 002 | Tracks panel: accordion CRUD, all track fields | **Complete** ✅ |
-| 003 | Threads panel + preview navigation sync | Planned ⏳ |
+| 003 | Threads panel + preview navigation sync | **Complete** ✅ |
 | 004 | Timeline and Tools panels | Planned ⏳ |
 | 005 | Scale editor + controls | Planned ⏳ |
 | 006 | Export, JSON drawer, settings, localStorage | Planned ⏳ |
@@ -36,4 +36,5 @@ graph LR
 | Design | 2026-03-29 | 2026-03-29 |
 | 001 | 2026-03-29 | 2026-03-29 |
 | 002 | 2026-03-29 | 2026-03-29 |
-| 003–006 | — | — |
+| 003 | 2026-03-29 | 2026-03-29 |
+| 004–006 | — | — |

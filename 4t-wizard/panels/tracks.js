@@ -1,7 +1,9 @@
 import { defineComponent, ref, computed, watch } from 'vue'
 import { wizardData, activeNav, pushUndo } from '../store.js'
-import { ColorPicker }  from '../controls/color-picker.js'
-import { LevelSlider }  from '../controls/slider.js'
+import { ensureChart, toggleChartField, ensureChartField, setEffect } from './form-helpers.js'
+import { ChartTextForm } from './chart-text-form.js'
+import { ColorPicker }   from '../controls/color-picker.js'
+import { LevelSlider }   from '../controls/slider.js'
 import { EffectsPicker } from '../controls/effects-picker.js'
 
 // ─── Helpers ─────────────────────────────────────────────────────────────────
@@ -18,25 +20,11 @@ const newTrack = () => ({
   threads:  [],
 })
 
-function ensureChart(track) {
-  if (!track.chart) {
-    track.chart = {
-      title:     null,
-      pre_text:  null,
-      post_text: null,
-      effects:   { enter: 'none', exit: 'none' },
-    }
-  }
-  if (!track.chart.effects) {
-    track.chart.effects = { enter: 'none', exit: 'none' }
-  }
-}
-
 // ─── Component ───────────────────────────────────────────────────────────────
 
 export const TracksPanel = defineComponent({
   name: 'TracksPanel',
-  components: { ColorPicker, LevelSlider, EffectsPicker },
+  components: { ColorPicker, LevelSlider, EffectsPicker, ChartTextForm },
 
   setup() {
     const openId = ref(null)
@@ -85,46 +73,14 @@ export const TracksPanel = defineComponent({
 
     // ── Field mutations ───────────────────────────────────────────────────────
 
-    // Called on text field @change — captures undo BEFORE committing new value.
-    function set(fn) {
-      pushUndo()
-      fn()
-    }
-
-    // Called on slider/color @mousedown — captures undo BEFORE dragging starts.
-    // The actual update flows through @input directly (no extra pushUndo needed).
-    function snap() { pushUndo() }
-
-    function toggleChartField(track, field) {
-      pushUndo()
-      ensureChart(track)
-      track.chart[field] = track.chart[field] ? null : { en: '', ru: '' }
-    }
-
-    function ensureChartField(track, field) {
-      ensureChart(track)
-      if (!track.chart[field]) track.chart[field] = { en: '', ru: '' }
-    }
-
-    function setEffect(track, dir, val) {
-      ensureChart(track)
-      track.chart.effects[dir] = val
-    }
-
-    // on_click field
-    const ON_CLICK_OPTIONS = [
-      { value: 'thread',   label: 'Thread' },
-      { value: 'timeline', label: 'Timeline' },
-      { value: 'tools',    label: 'Tools' },
-      { value: null,       label: '(none — not clickable)' },
-    ]
+    function set(fn) { pushUndo(); fn() }
+    function snap()  { pushUndo() }
 
     return {
       openId, tracks, scale,
       toggle, addTrack, deleteTrack, moveUp, moveDown,
       set, snap,
       toggleChartField, ensureChartField, setEffect,
-      ON_CLICK_OPTIONS,
     }
   },
 
@@ -218,75 +174,7 @@ export const TracksPanel = defineComponent({
       <!-- Chart text -->
       <div class="form-section">
         <div class="form-section-title">Chart text</div>
-
-        <!-- Title -->
-        <div class="field-section">
-          <div class="field-toggle-row">
-            <input type="checkbox"
-              :checked="!!track.chart?.title"
-              @change="toggleChartField(track, 'title')"
-            >
-            <span class="toggle-label">Title</span>
-          </div>
-          <template v-if="track.chart?.title">
-            <div class="field-row">
-              <label>EN</label>
-              <input type="text" :value="track.chart.title.en"
-                @change="set(() => { ensureChartField(track, 'title'); track.chart.title.en = $event.target.value })">
-            </div>
-            <div class="field-row">
-              <label>RU</label>
-              <input type="text" :value="track.chart.title.ru"
-                @change="set(() => { ensureChartField(track, 'title'); track.chart.title.ru = $event.target.value })">
-            </div>
-          </template>
-        </div>
-
-        <!-- Pre-text -->
-        <div class="field-section">
-          <div class="field-toggle-row">
-            <input type="checkbox"
-              :checked="!!track.chart?.pre_text"
-              @change="toggleChartField(track, 'pre_text')"
-            >
-            <span class="toggle-label">Pre-text</span>
-          </div>
-          <template v-if="track.chart?.pre_text">
-            <div class="field-row">
-              <label>EN</label>
-              <textarea :value="track.chart.pre_text.en"
-                @change="set(() => { ensureChartField(track, 'pre_text'); track.chart.pre_text.en = $event.target.value })"></textarea>
-            </div>
-            <div class="field-row">
-              <label>RU</label>
-              <textarea :value="track.chart.pre_text.ru"
-                @change="set(() => { ensureChartField(track, 'pre_text'); track.chart.pre_text.ru = $event.target.value })"></textarea>
-            </div>
-          </template>
-        </div>
-
-        <!-- Post-text -->
-        <div class="field-section">
-          <div class="field-toggle-row">
-            <input type="checkbox"
-              :checked="!!track.chart?.post_text"
-              @change="toggleChartField(track, 'post_text')"
-            >
-            <span class="toggle-label">Post-text</span>
-          </div>
-          <template v-if="track.chart?.post_text">
-            <div class="field-row">
-              <label>EN</label>
-              <textarea :value="track.chart.post_text.en"
-                @change="set(() => { ensureChartField(track, 'post_text'); track.chart.post_text.en = $event.target.value })"></textarea>
-            </div>
-            <div class="field-row">
-              <label>RU</label>
-              <textarea :value="track.chart.post_text.ru"
-                @change="set(() => { ensureChartField(track, 'post_text'); track.chart.post_text.ru = $event.target.value })"></textarea>
-            </div>
-          </template>
-        </div>
+        <chart-text-form :entity="track"></chart-text-form>
       </div>
 
       <!-- Effects -->

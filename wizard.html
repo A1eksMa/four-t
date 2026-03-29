@@ -407,9 +407,10 @@
   <!-- ── Editor ─────────────────────────────────────────────────────────────── -->
   <div id="editor-section">
     <div class="panel-label">{{ panelLabel }}</div>
-    <tracks-panel v-if="activeNav.panel === 'tracks'"></tracks-panel>
+    <tracks-panel   v-if="activeNav.panel === 'tracks'"></tracks-panel>
+    <threads-panel  v-else-if="activeNav.panel === 'threads'"></threads-panel>
     <div class="panel-placeholder" v-else>
-      {{ panelLabel }} — editing panel coming in Stage 3+
+      {{ panelLabel }} — editing panel coming in Stage 4+
     </div>
   </div>
 
