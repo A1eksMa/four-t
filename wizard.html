@@ -242,6 +242,101 @@
     }
     #json-drawer .copy-btn:hover { background: #363c58; }
     #json-drawer .copy-btn.copied { color: #6ee7b7; border-color: #6ee7b7; }
+
+    /* ── Panel toolbar ───────────────────────────────────────────────────────── */
+
+    .panel-toolbar { display: flex; gap: 8px; margin-bottom: 12px; }
+
+    .btn-tool {
+      padding: 5px 12px;
+      border: 1px solid #c8d0dc;
+      border-radius: 5px;
+      background: #fff;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .btn-tool:hover { background: #f0f4f8; }
+
+    .panel-empty {
+      padding: 32px;
+      text-align: center;
+      color: #aaa;
+      border: 2px dashed #e0e4ea;
+      border-radius: 6px;
+      font-size: 13px;
+    }
+
+    /* ── Accordion ───────────────────────────────────────────────────────────── */
+
+    .acc-row { border: 1px solid #dde1e8; border-radius: 6px; margin-bottom: 6px; overflow: hidden; }
+
+    .acc-header {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 10px; cursor: pointer; user-select: none; background: #f6f8fa;
+    }
+    .acc-header:hover { background: #edf0f5; }
+    .acc-header.open  { background: #e8edf5; }
+
+    .acc-arrow { font-size: 10px; color: #888; width: 12px; flex-shrink: 0; }
+    .color-dot { width: 14px; height: 14px; border-radius: 50%; border: 1px solid rgba(0,0,0,0.15); flex-shrink: 0; }
+    .acc-label { flex: 1; font-weight: 500; font-size: 13px; }
+    .acc-badge { font-size: 11px; color: #aaa; font-style: italic; }
+
+    .icon-btn {
+      padding: 2px 7px; border: 1px solid #dde1e8; border-radius: 4px;
+      background: #fff; font-size: 12px; cursor: pointer; line-height: 1.4;
+    }
+    .icon-btn:hover:not(:disabled) { background: #f0f4f8; }
+    .icon-btn:disabled { opacity: 0.25; cursor: default; }
+    .icon-btn.danger:hover { background: #fff0f0; border-color: #f5c6c6; color: #c33; }
+
+    .acc-body { padding: 14px 16px; border-top: 1px solid #dde1e8; background: #fff; }
+
+    /* ── Form ────────────────────────────────────────────────────────────────── */
+
+    .form-section { margin-bottom: 16px; }
+
+    .form-section-title {
+      font-size: 11px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #9aa; margin-bottom: 8px;
+    }
+
+    .field-row { display: flex; align-items: center; gap: 8px; margin-bottom: 7px; }
+    .field-row label { font-size: 12px; color: #555; min-width: 72px; flex-shrink: 0; }
+
+    .field-row input[type="text"],
+    .field-row select {
+      flex: 1; padding: 4px 8px; border: 1px solid #ccd0d8;
+      border-radius: 4px; font-size: 13px; font-family: inherit;
+    }
+    .field-row textarea {
+      flex: 1; padding: 4px 8px; border: 1px solid #ccd0d8;
+      border-radius: 4px; font-size: 13px; font-family: inherit;
+      resize: vertical; min-height: 52px;
+    }
+
+    .field-section { border-left: 3px solid #e8ecf2; padding-left: 10px; margin-bottom: 10px; }
+
+    .field-toggle-row {
+      display: flex; align-items: center; gap: 6px; margin-bottom: 6px; cursor: pointer;
+    }
+    .field-toggle-row input[type="checkbox"] { cursor: pointer; }
+    .toggle-label { font-size: 12px; font-weight: 500; color: #444; }
+
+    .field-toggle { display: flex; align-items: center; gap: 6px; cursor: pointer; font-size: 13px; color: #333; }
+
+    /* ── Controls ────────────────────────────────────────────────────────────── */
+
+    .color-picker-wrap { display: flex; align-items: center; gap: 6px; }
+    .color-picker-wrap input[type="color"] {
+      width: 36px; height: 28px; padding: 1px;
+      border: 1px solid #ccd0d8; border-radius: 4px; cursor: pointer;
+    }
+    .hex-label { font-size: 11px; color: #666; font-family: monospace; }
+
+    .slider-wrap { display: flex; align-items: center; gap: 8px; flex: 1; }
+    .slider-wrap input[type="range"] { flex: 1; }
+    .range-label { font-size: 12px; color: #666; min-width: 160px; white-space: nowrap; }
   </style>
 </head>
 <body>
@@ -312,8 +407,9 @@
   <!-- ── Editor ─────────────────────────────────────────────────────────────── -->
   <div id="editor-section">
     <div class="panel-label">{{ panelLabel }}</div>
-    <div class="panel-placeholder">
-      Editing panels — Stage 2 (Tracks) and beyond
+    <tracks-panel v-if="activeNav.panel === 'tracks'"></tracks-panel>
+    <div class="panel-placeholder" v-else>
+      {{ panelLabel }} — editing panel coming in Stage 3+
     </div>
   </div>
 

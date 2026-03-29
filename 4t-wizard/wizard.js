@@ -1,6 +1,7 @@
 import { createApp, ref, computed, watch, onMounted } from 'vue'
-import { loadData }  from '../4t-widget/core/loader.js'
-import { FourT }     from '../4t-widget/widget.js'
+import { loadData }    from '../4t-widget/core/loader.js'
+import { FourT }       from '../4t-widget/widget.js'
+import { TracksPanel } from './panels/tracks.js'
 import {
   settings, wizardData, undoStack, redoStack, activeNav,
   saveSettings, saveSession, loadSession, clearSession,
@@ -235,5 +236,7 @@ const app = createApp({
     }
   }
 })
+
+app.component('TracksPanel', TracksPanel)
 
 app.mount('#app')

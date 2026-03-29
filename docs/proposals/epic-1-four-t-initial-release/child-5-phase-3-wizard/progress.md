@@ -21,7 +21,7 @@ graph LR
 | # | Title | Status |
 |---|-------|--------|
 | 001 | Shell: layout, Vue, store, preview, start dialog | **Complete** ✅ |
-| 002 | Tracks panel: accordion CRUD, all track fields | Planned ⏳ |
+| 002 | Tracks panel: accordion CRUD, all track fields | **Complete** ✅ |
 | 003 | Threads panel + preview navigation sync | Planned ⏳ |
 | 004 | Timeline and Tools panels | Planned ⏳ |
 | 005 | Scale editor + controls | Planned ⏳ |
@@ -35,4 +35,5 @@ graph LR
 |-------|---------|-----------|
 | Design | 2026-03-29 | 2026-03-29 |
 | 001 | 2026-03-29 | 2026-03-29 |
-| 002–006 | — | — |
+| 002 | 2026-03-29 | 2026-03-29 |
+| 003–006 | — | — |
