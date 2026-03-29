@@ -1,16 +1,26 @@
 import { resolveField } from '../core/i18n.js'
 import { rgba } from '../core/color.js'
 
-// buildL1Option(tracks: TrackData[], lang: string) => EChartsOption
-export const buildL1Option = (tracks, lang) => {
+// buildL1Option(tracks: TrackData[], lang: string, zeroed?: boolean) => EChartsOption
+export const buildL1Option = (tracks, lang, zeroed = false) => {
   const names  = tracks.map(t => resolveField(t.name, lang))
-  const values = tracks.map(t => t.status === 'placeholder'
-    ? { value: 0.4, itemStyle: { opacity: 0.22 }, emphasis: { disabled: true } }
-    : { value: t.level, itemStyle: { color: t.color } }
-  )
+  const values = tracks.map(t => {
+    const style = t.status === 'placeholder'
+      ? { opacity: 0.22 }
+      : { color: t.color }
+    return {
+      value: zeroed ? 0 : (t.status === 'placeholder' ? 0.4 : t.level),
+      itemStyle: style,
+      ...(t.status === 'placeholder' && !zeroed ? { emphasis: { disabled: true } } : {}),
+    }
+  })
 
   return {
     animation: true,
+    animationDuration: 600,
+    animationEasing: 'cubicOut',
+    animationDurationUpdate: 400,
+    animationEasingUpdate: 'cubicIn',
     tooltip: {
       trigger: 'item',
       formatter: p => p.data.value < 1

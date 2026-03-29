@@ -17,6 +17,8 @@ import { grow }                        from './effects/grow.js'
 // Map<symbol, Instance>
 const instances = new Map()
 
+const L1_COLLAPSE_MS = 450
+
 // ─── Theme ───────────────────────────────────────────────────────────────────
 
 const isDarkMode = () =>
@@ -149,6 +151,18 @@ const onChartClick = (params, id, locale) => {
   if (!nextType) return
 
   const nextFrame  = buildNextFrame(nextType, entity, params, state)
+
+  if (frame.type === 'track') {
+    inst.flipping = true
+    inst.chart.setOption(buildL1Option(state.data.tracks, state.lang, true), false)
+    setTimeout(() => {
+      inst.stateRef.state = pushLevel(inst.stateRef.state, nextFrame)
+      render(id, locale)
+      inst.flipping = false
+    }, L1_COLLAPSE_MS)
+    return
+  }
+
   const exitEffect = entity.chart?.effects?.exit ?? 'none'
 
   inst.flipping = true
@@ -171,6 +185,14 @@ const navigateBack = (id, targetDepth) => {
   const inst = instances.get(id)
   if (!inst || inst.flipping) return
   inst.flipping = true
+
+  if (targetDepth === 0) {
+    inst.stateRef.state = popTo(inst.stateRef.state, targetDepth)
+    render(id, inst._locale)
+    inst.flipping = false
+    return
+  }
+
   applyEffect('flipX', inst.element,
     () => {
       inst.stateRef.state = popTo(inst.stateRef.state, targetDepth)
