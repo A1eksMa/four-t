@@ -1,13 +1,13 @@
 # Progress: Issue #8 — Phase 6: Self-hosted Demo
 
-**Status:** In Progress — Stage 1 complete, Stage 2 blocked on Issue #5
+**Status:** In Progress — Stage 1 complete, Stage 2 ready (Issue #5 complete)
 
 ---
 
 ```mermaid
 graph LR
     S1[Stage 1: nginx + SSL] -->|Complete ✅| S2[Stage 2: /wizard route]
-    S2 -->|Blocked ⏳ — needs Issue 5| DONE[Issue closed]
+    S2 -->|Ready ▶| DONE[Issue closed]
 ```
 
 ---
@@ -17,7 +17,7 @@ graph LR
 | # | Title | Status |
 |---|-------|--------|
 | 001 | nginx config + SSL + index.html live | **Complete** ✅ |
-| 002 | /wizard route (after Phase 3) | Planned ⏳ |
+| 002 | /wizard route | Ready ▶ |
 
 ---
 
@@ -35,4 +35,4 @@ graph LR
 | Stage | Date | Notes |
 |-------|------|-------|
 | Stage 1 | 2026-03-29 | Ahead of original sequence — started before Phase 3 to enable UX design |
-| Stage 2 | — | Blocked on Issue #5 |
+| Stage 2 | — | Ready — Issue #5 complete |

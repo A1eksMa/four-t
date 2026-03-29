@@ -130,9 +130,59 @@ by others. This is handled during Stage 1 implementation.
 
 ---
 
+### D5: Containerized deployment
+
+**Decision:** The service runs inside a Docker container (`nginx:alpine`) exposing
+port `8080` on `127.0.0.1`. The host nginx acts as a reverse proxy
+(`proxy_pass http://127.0.0.1:8080`).
+
+**Rationale:** Isolation — the service is sandboxed from the host OS. The initial
+"repo-as-webroot direct nginx" setup (D1) was intentionally temporary for fast
+first-deploy validation. The containerized scheme is the production arrangement.
+
+**Data volume:** A host directory (`/home/a1eksma/four-t-data`) is bind-mounted over
+the container's `4t-data/` path. This persists user-generated configurations
+(produced by the wizard) across container restarts and re-deploys. The example
+dataset is pre-seeded into the volume on first setup.
+
+**Port:** Bound to `127.0.0.1:8080` only — not reachable from outside except through
+the nginx reverse proxy.
+
+### D6: Migration to dedicated VPS (`195.2.67.202`)
+
+**Decision:** The service is migrated from the original local server to a dedicated
+VPS at `195.2.67.202`. Domain `a1exma.online` is delegated to this IP.
+The original nginx config on the local server is disabled and removed.
+
+**Rationale:** The local server was used for initial bring-up only. A dedicated VPS
+provides a stable, independent hosting environment decoupled from the development
+machine.
+
+**Server setup:** Debian 12, Docker CE, nginx. Repository cloned to
+`/home/a1eksma/github/four-t`.
+
+### D7: GitHub Actions CI/CD pipeline
+
+**Decision:** A GitHub Actions workflow triggers on every push to `main`:
+
+1. **test** job — runs Vitest inside the Docker test container; no artifacts left on runner
+2. **deploy** job (runs only if tests pass) — SSH into `195.2.67.202`,
+   `git pull origin main`, `docker compose up -d --force-recreate web`
+
+**Rationale:** Automated deployment keeps the live site in sync with `main`. Tests
+gate the deploy — a failing test prevents broken code from reaching production.
+
+**Secrets (set via `gh secret set`):**
+- `DEPLOY_SSH_KEY` — private SSH key for `a1eksma@195.2.67.202`
+- `DEPLOY_HOST` — `195.2.67.202`
+- `DEPLOY_USER` — `a1eksma`
+
+---
+
 ## Stages
 
 | # | File | Title | Status |
 |---|------|-------|--------|
-| 1 | `001-nginx-ssl.md` | nginx config + SSL + index.html live | Complete |
-| 2 | `002-wizard-route.md` | /wizard route (after Phase 3) | Planned |
+| 1 | `001-nginx-ssl.md` | nginx config + SSL + index.html live (local server) | Complete |
+| 2 | `002-wizard-route.md` | /wizard route | Ready |
+| 3 | `003-containerization.md` | Docker, remote server, nginx proxy, SSL, GitHub Actions | Ready |

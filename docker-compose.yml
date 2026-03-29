@@ -1,0 +1,18 @@
+services:
+  web:
+    build: .
+    ports:
+      - "127.0.0.1:8080:80"
+    volumes:
+      - .:/usr/share/nginx/html:ro
+      - /home/a1eksma/four-t-data:/usr/share/nginx/html/4t-data
+    restart: unless-stopped
+
+  test:
+    image: node:22-alpine
+    working_dir: /app
+    volumes:
+      - .:/app:ro
+    command: npx vitest run
+    profiles:
+      - test

@@ -2,40 +2,21 @@
 
 **Issue:** #8
 **Stage:** 002
-**Status:** Planned — blocked on Issue #5 (Phase 3: 4t-wizard)
+**Status:** Ready — Issue #5 complete, covered by Stage 3 deployment
 
 ---
 
 ## Goal
 
-`https://a1exma.online/wizard` serves `wizard.html` after Phase 3 produces it.
+`https://a1exma.online/wizard.html` serves `4t-wizard/wizard.html` from the container.
 
 ---
 
-## Blocker
+## Note
 
-`wizard.html` does not exist yet. This stage is unblocked when Issue #5 is complete.
+The `/wizard.html` route is served automatically by the Docker container (nginx:alpine
+with `try_files $uri $uri/`). No separate nginx location block is required — the file
+exists at the correct path in the repository and is accessible via the container webroot.
 
----
-
-## Checklist
-
-- [ ] `wizard.html` exists in repo root (deliverable of Issue #5)
-- [ ] Add `location /wizard` block to nginx config
-- [ ] Reload nginx
-- [ ] `https://a1exma.online/wizard` responds with `wizard.html` (`200 OK`)
-- [ ] Wizard loads and FourT preview renders
-
----
-
-## nginx change
-
-Add to the HTTPS server block in `/etc/nginx/sites-available/a1exma.online`:
-
-```nginx
-location = /wizard {
-    try_files /wizard.html =404;
-}
-```
-
-No other changes required — the file is already in the webroot (repo root).
+This stage is delivered as part of Stage 3 (containerization). No standalone
+implementation step needed.
