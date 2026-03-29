@@ -163,6 +163,18 @@ const onChartClick = (params, id, locale) => {
     return
   }
 
+  if (frame.type === 'timeline') {
+    inst.flipping = true
+    const thread = getThread(state.data, frame.trackId, frame.threadId)
+    inst.chart.setOption(buildL3Option(thread, true, state.lang), false)
+    setTimeout(() => {
+      inst.stateRef.state = pushLevel(inst.stateRef.state, nextFrame)
+      render(id, locale)
+      inst.flipping = false
+    }, COLLAPSE_MS)
+    return
+  }
+
   if (frame.type === 'thread') {
     inst.flipping = true
     const track = getTrack(state.data, frame.trackId)
@@ -206,6 +218,18 @@ const navigateBack = (id, targetDepth) => {
     inst.stateRef.state = popTo(inst.stateRef.state, targetDepth)
     render(id, inst._locale)
     inst.flipping = false
+    return
+  }
+
+  if (targetDepth === 2) {
+    inst.stateRef.state = popTo(inst.stateRef.state, targetDepth)
+    render(id, inst._locale)
+    const frame = currentFrame(inst.stateRef.state)
+    const thread = getThread(inst.stateRef.state.data, frame.trackId, frame.threadId)
+    setTimeout(() => {
+      grow(inst.chart, thread, inst.stateRef.state.lang)
+      inst.flipping = false
+    }, 50)
     return
   }
 
