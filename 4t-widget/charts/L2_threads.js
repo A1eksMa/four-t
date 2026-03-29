@@ -1,13 +1,13 @@
 import { resolveField } from '../core/i18n.js'
 import { shade } from '../core/color.js'
 
-// buildL2Option(track: TrackData, lang: string) => EChartsOption
-export const buildL2Option = (track, lang) => {
+// buildL2Option(track: TrackData, lang: string, zeroed?: boolean) => EChartsOption
+export const buildL2Option = (track, lang, zeroed = false) => {
   const sorted  = [...track.threads].sort((a, b) => b.level - a.level)
   const total   = sorted.length
   const names   = sorted.map(t => resolveField(t.name, lang))
   const values  = sorted.map((t, i) => ({
-    value: t.level,
+    value: zeroed ? 0 : t.level,
     itemStyle: {
       color:   shade(track.color, i, total),
       opacity: t.status === 'archive' ? 0.42 : 1,
@@ -16,6 +16,10 @@ export const buildL2Option = (track, lang) => {
 
   return {
     animation: true,
+    animationDuration: 600,
+    animationEasing: 'cubicOut',
+    animationDurationUpdate: 400,
+    animationEasingUpdate: 'cubicIn',
     tooltip: {
       trigger: 'item',
       formatter: p => `${names[p.dataIndex]}: ${p.data.value}`,
@@ -32,7 +36,7 @@ export const buildL2Option = (track, lang) => {
       type: 'category',
       data: names,
       axisLabel: { fontSize: 13 },
-      inverse: false,
+      inverse: true,
     },
     series: [{
       type: 'bar',

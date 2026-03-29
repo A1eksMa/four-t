@@ -17,7 +17,7 @@ import { grow }                        from './effects/grow.js'
 // Map<symbol, Instance>
 const instances = new Map()
 
-const L1_COLLAPSE_MS = 450
+const COLLAPSE_MS = 450
 
 // ─── Theme ───────────────────────────────────────────────────────────────────
 
@@ -159,7 +159,23 @@ const onChartClick = (params, id, locale) => {
       inst.stateRef.state = pushLevel(inst.stateRef.state, nextFrame)
       render(id, locale)
       inst.flipping = false
-    }, L1_COLLAPSE_MS)
+    }, COLLAPSE_MS)
+    return
+  }
+
+  if (frame.type === 'thread') {
+    inst.flipping = true
+    const track = getTrack(state.data, frame.trackId)
+    inst.chart.setOption(buildL2Option(track, state.lang, true), false)
+    setTimeout(() => {
+      inst.stateRef.state = pushLevel(inst.stateRef.state, nextFrame)
+      render(id, locale)
+      inst.flipping = false
+      if (nextFrame.type === 'timeline') {
+        const thread = getThread(inst.stateRef.state.data, nextFrame.trackId, nextFrame.threadId)
+        grow(inst.chart, thread, inst.stateRef.state.lang)
+      }
+    }, COLLAPSE_MS)
     return
   }
 
@@ -186,7 +202,7 @@ const navigateBack = (id, targetDepth) => {
   if (!inst || inst.flipping) return
   inst.flipping = true
 
-  if (targetDepth === 0) {
+  if (targetDepth === 0 || targetDepth === 1) {
     inst.stateRef.state = popTo(inst.stateRef.state, targetDepth)
     render(id, inst._locale)
     inst.flipping = false
