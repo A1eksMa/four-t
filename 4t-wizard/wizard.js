@@ -6,6 +6,7 @@ import { TracksPanel }  from './panels/tracks.js'
 import { ThreadsPanel } from './panels/threads.js'
 import { TimelinePanel } from './panels/timeline.js'
 import { ToolsPanel }    from './panels/tools.js'
+import { ScaleEditor }   from './panels/scale-editor.js'
 import {
   settings, wizardData, undoStack, redoStack, activeNav,
   saveSettings, saveSession, loadSession, clearSession,
@@ -256,5 +257,6 @@ app.component('TracksPanel',   TracksPanel)
 app.component('ThreadsPanel',  ThreadsPanel)
 app.component('TimelinePanel', TimelinePanel)
 app.component('ToolsPanel',    ToolsPanel)
+app.component('ScaleEditor',   ScaleEditor)
 
 app.mount('#app')

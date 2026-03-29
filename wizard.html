@@ -357,6 +357,56 @@
 
     .acc-row.highlighted > .acc-header { background: #fffbeb; border-left: 3px solid #f59e0b; }
     .highlight-badge { color: #d97706; font-weight: 600; }
+
+    /* ── Scale editor ────────────────────────────────────────────────────────── */
+
+    .scale-editor {
+      border: 1px solid #dde1e8;
+      border-radius: 6px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+
+    .scale-editor-header {
+      display: flex; align-items: center; gap: 6px;
+      padding: 8px 10px; cursor: pointer; user-select: none;
+      background: #f0f4fa;
+    }
+    .scale-editor-header:hover { background: #e8edf5; }
+
+    .scale-editor-title {
+      font-size: 12px; font-weight: 600; text-transform: uppercase;
+      letter-spacing: 0.06em; color: #557;
+    }
+
+    .scale-editor-summary {
+      font-size: 12px; color: #889; margin-left: 4px;
+    }
+
+    .scale-editor-body {
+      padding: 14px 16px;
+      border-top: 1px solid #dde1e8;
+      background: #fff;
+    }
+
+    .scale-num-input {
+      width: 80px; padding: 4px 8px;
+      border: 1px solid #ccd0d8; border-radius: 4px;
+      font-size: 13px; font-family: inherit;
+    }
+
+    .scale-empty {
+      font-size: 12px; color: #aaa; font-style: italic; padding: 4px 0 8px;
+    }
+
+    .scale-table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 6px; }
+    .scale-table th {
+      text-align: left; padding: 4px 6px; font-size: 11px; font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.05em; color: #999;
+      border-bottom: 1px solid #e5e7eb;
+    }
+    .scale-table td { padding: 4px 5px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+    .scale-table tr:last-child td { border-bottom: none; }
   </style>
 </head>
 <body>

@@ -2,6 +2,7 @@ import { defineComponent, ref, computed, watch } from 'vue'
 import { wizardData, activeNav, pushUndo } from '../store.js'
 import { ensureChart, toggleChartField, ensureChartField, setEffect } from './form-helpers.js'
 import { ChartTextForm } from './chart-text-form.js'
+import { ScaleEditor }   from './scale-editor.js'
 import { ColorPicker }   from '../controls/color-picker.js'
 import { LevelSlider }   from '../controls/slider.js'
 import { EffectsPicker } from '../controls/effects-picker.js'
@@ -24,7 +25,7 @@ const newTrack = () => ({
 
 export const TracksPanel = defineComponent({
   name: 'TracksPanel',
-  components: { ColorPicker, LevelSlider, EffectsPicker, ChartTextForm },
+  components: { ColorPicker, LevelSlider, EffectsPicker, ChartTextForm, ScaleEditor },
 
   setup() {
     const openId = ref(null)
@@ -86,6 +87,9 @@ export const TracksPanel = defineComponent({
 
   template: `
 <div class="tracks-panel">
+
+  <!-- Scale editor -->
+  <scale-editor></scale-editor>
 
   <!-- Toolbar -->
   <div class="panel-toolbar">
