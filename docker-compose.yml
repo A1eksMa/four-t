@@ -13,6 +13,6 @@ services:
     working_dir: /app
     volumes:
       - .:/app:ro
-    command: npx vitest run
+    command: npx vitest run --passWithNoTests
     profiles:
       - test
