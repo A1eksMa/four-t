@@ -465,6 +465,7 @@
     <button class="hbtn" @click="toggleLang">{{ lang.toUpperCase() }}</button>
     <button class="hbtn" @click="handleOpen">Open</button>
     <button class="hbtn" @click="handleNew">New</button>
+    <button class="hbtn" @click="handleExport" :disabled="exportBusy">{{ exportBusy ? 'Exporting…' : 'Export ZIP' }}</button>
     <button class="hbtn" @click="openSettings">Settings</button>
     <button class="hbtn" :class="{ active: showJsonDrawer }" @click="showJsonDrawer = !showJsonDrawer">JSON</button>
   </div>
@@ -492,6 +493,7 @@
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/echarts@5.6.0/dist/echarts.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/jszip@3.10.1/dist/jszip.min.js"></script>
 <script type="module" src="./4t-wizard/wizard.js"></script>
 
 </body>

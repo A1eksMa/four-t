@@ -12,6 +12,7 @@ import {
   saveSettings, saveSession, loadSession, clearSession,
   hasSession, loadFromData, resetToEmpty, pushUndo, undo, redo,
 } from './store.js'
+import { exportZip } from './exporter.js'
 
 // ─── Nav sync ─────────────────────────────────────────────────────────────────
 
@@ -200,6 +201,16 @@ const app = createApp({
     function handleUndo() { undo() }
     function handleRedo() { redo() }
 
+    // ── Export ────────────────────────────────────────────────────────────────
+    const exportBusy = ref(false)
+
+    async function handleExport() {
+      if (exportBusy.value) return
+      exportBusy.value = true
+      try { await exportZip(wizardData.value) }
+      finally { exportBusy.value = false }
+    }
+
     // ── Settings ──────────────────────────────────────────────────────────────
     function openSettings() {
       settingsForm.value = { undoDepth: settings.value.undoDepth }
@@ -249,6 +260,7 @@ const app = createApp({
       toggleLang, handleUndo, handleRedo,
       openSettings, saveSettingsForm,
       copyJson,
+      handleExport, exportBusy,
     }
   }
 })
