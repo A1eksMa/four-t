@@ -20,7 +20,7 @@ graph LR
 
 | # | Title | Status |
 |---|-------|--------|
-| 001 | Shell: layout, Vue, store, preview, start dialog | Planned ⏳ |
+| 001 | Shell: layout, Vue, store, preview, start dialog | **Complete** ✅ |
 | 002 | Tracks panel: accordion CRUD, all track fields | Planned ⏳ |
 | 003 | Threads panel + preview navigation sync | Planned ⏳ |
 | 004 | Timeline and Tools panels | Planned ⏳ |
@@ -34,4 +34,5 @@ graph LR
 | Stage | Started | Completed |
 |-------|---------|-----------|
 | Design | 2026-03-29 | 2026-03-29 |
-| 001–006 | — | — |
+| 001 | 2026-03-29 | 2026-03-29 |
+| 002–006 | — | — |
