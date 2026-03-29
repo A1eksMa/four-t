@@ -24,7 +24,7 @@ graph LR
 | 002 | Tracks panel: accordion CRUD, all track fields | **Complete** ✅ |
 | 003 | Threads panel + preview navigation sync | **Complete** ✅ |
 | 004 | Timeline and Tools panels | **Complete** ✅ |
-| 005 | Scale editor + controls | Planned ⏳ |
+| 005 | Scale editor + controls | **Complete** ✅ |
 | 006 | Export, JSON drawer, settings, localStorage | Planned ⏳ |
 
 ---
@@ -38,4 +38,5 @@ graph LR
 | 002 | 2026-03-29 | 2026-03-29 |
 | 003 | 2026-03-29 | 2026-03-29 |
 | 004 | 2026-03-29 | 2026-03-29 |
-| 005–006 | — | — |
+| 005 | 2026-03-29 | 2026-03-29 |
+| 006 | — | — |
