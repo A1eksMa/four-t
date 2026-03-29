@@ -30,7 +30,7 @@ export const redoStack  = ref([])
 
 // activeNav mirrors the widget's current navigation level,
 // used to determine which editor panel is shown.
-export const activeNav = ref({ panel: 'tracks', trackId: null, threadId: null })
+export const activeNav = ref({ panel: 'tracks', trackId: null, threadId: null, periodMs: null })
 
 // ─── Settings ─────────────────────────────────────────────────────────────────
 
@@ -89,7 +89,7 @@ export function loadFromData(data) {
   wizardData.value = data
   undoStack.value  = []
   redoStack.value  = []
-  activeNav.value  = { panel: 'tracks', trackId: null, threadId: null }
+  activeNav.value  = { panel: 'tracks', trackId: null, threadId: null, periodMs: null }
 }
 
 export function resetToEmpty() {

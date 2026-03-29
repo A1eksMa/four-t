@@ -337,6 +337,26 @@
     .slider-wrap { display: flex; align-items: center; gap: 8px; flex: 1; }
     .slider-wrap input[type="range"] { flex: 1; }
     .range-label { font-size: 12px; color: #666; min-width: 160px; white-space: nowrap; }
+
+    /* ── Timeline / Tools table ──────────────────────────────────────────────── */
+
+    .hint-text { font-size: 12px; color: #999; }
+    .hint-text code { font-family: monospace; background: #f0f0f0; padding: 1px 5px; border-radius: 3px; }
+
+    .tl-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+    .tl-table th { text-align: left; padding: 5px 8px; font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.05em; color: #999; border-bottom: 1px solid #e5e7eb; }
+    .tl-table td { padding: 5px 6px; border-bottom: 1px solid #f0f0f0; vertical-align: middle; }
+    .tl-table tr:last-child td { border-bottom: none; }
+
+    .tl-input { width: 100%; padding: 3px 7px; border: 1px solid #ccd0d8; border-radius: 4px; font-size: 13px; font-family: inherit; }
+    .tl-ann-cell { display: flex; gap: 4px; align-items: center; }
+    .btn-tool-sm { padding: 2px 8px; border: 1px solid #c8d0dc; border-radius: 4px; background: #fff; font-size: 12px; cursor: pointer; color: #666; }
+    .btn-tool-sm:hover { background: #f0f4f8; }
+
+    .snap-period-input { padding: 2px 6px; border: 1px solid #ccd0d8; border-radius: 4px; font-size: 13px; font-family: monospace; width: 120px; }
+
+    .acc-row.highlighted > .acc-header { background: #fffbeb; border-left: 3px solid #f59e0b; }
+    .highlight-badge { color: #d97706; font-weight: 600; }
   </style>
 </head>
 <body>
@@ -409,8 +429,10 @@
     <div class="panel-label">{{ panelLabel }}</div>
     <tracks-panel   v-if="activeNav.panel === 'tracks'"></tracks-panel>
     <threads-panel  v-else-if="activeNav.panel === 'threads'"></threads-panel>
+    <timeline-panel v-else-if="activeNav.panel === 'timeline'"></timeline-panel>
+    <tools-panel    v-else-if="activeNav.panel === 'tools'"></tools-panel>
     <div class="panel-placeholder" v-else>
-      {{ panelLabel }} — editing panel coming in Stage 4+
+      {{ panelLabel }} — editing panel coming in Stage 5+
     </div>
   </div>
 

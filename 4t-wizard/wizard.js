@@ -1,8 +1,11 @@
 import { createApp, ref, computed, watch, onMounted } from 'vue'
-import { loadData }    from '../4t-widget/core/loader.js'
-import { FourT }       from '../4t-widget/widget.js'
-import { TracksPanel }   from './panels/tracks.js'
-import { ThreadsPanel }  from './panels/threads.js'
+import { loadData }     from '../4t-widget/core/loader.js'
+import { FourT }        from '../4t-widget/widget.js'
+import { periodToMs }   from '../4t-widget/core/scale.js'
+import { TracksPanel }  from './panels/tracks.js'
+import { ThreadsPanel } from './panels/threads.js'
+import { TimelinePanel } from './panels/timeline.js'
+import { ToolsPanel }    from './panels/tools.js'
 import {
   settings, wizardData, undoStack, redoStack, activeNav,
   saveSettings, saveSession, loadSession, clearSession,
@@ -39,7 +42,17 @@ function setupNavSync(previewEl) {
       }
 
     } else if (panel === 'timeline') {
-      activeNav.value = { ...activeNav.value, panel: 'tools' }
+      const track  = data.tracks.find(t => t.id === activeNav.value.trackId)
+      const thread = track?.threads?.find(t => t.id === activeNav.value.threadId)
+      let pMs = null
+      if (thread) {
+        const point = thread.timeline[params.dataIndex]
+        if (point) {
+          const sc = thread.timeline_config?.scale ?? 'quarter'
+          try { pMs = periodToMs(sc, point.period) } catch { pMs = null }
+        }
+      }
+      activeNav.value = { ...activeNav.value, panel: 'tools', periodMs: pMs }
     }
     // tools level: no further navigation
   })
@@ -54,6 +67,7 @@ function setupNavSync(previewEl) {
       panel:    panels[depth] ?? 'tracks',
       trackId:  depth >= 1 ? activeNav.value.trackId  : null,
       threadId: depth >= 2 ? activeNav.value.threadId : null,
+      periodMs: depth >= 3 ? activeNav.value.periodMs : null,
     }
   })
 }
@@ -238,7 +252,9 @@ const app = createApp({
   }
 })
 
-app.component('TracksPanel',  TracksPanel)
-app.component('ThreadsPanel', ThreadsPanel)
+app.component('TracksPanel',   TracksPanel)
+app.component('ThreadsPanel',  ThreadsPanel)
+app.component('TimelinePanel', TimelinePanel)
+app.component('ToolsPanel',    ToolsPanel)
 
 app.mount('#app')
